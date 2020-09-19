@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
@@ -31,12 +32,16 @@ const Cart = (props) => {
 
     return (
         <div>
-            <h3>Order Summary</h3>
-            <p>Items Ordered: {cart.length} </p>
-            <p>Product Price: {formatNumber(total)}</p>
-            <p><small>Shipping Cost: {shipping}</small></p>
-            <p><small>Tax + VAT: {formatNumber(tax)}</small></p>
-            <p>Total Price: {formatNumber(total + shipping + tax)}</p>
+            <div className="cart-details">
+                <h3>Order Summary</h3>
+                <p>Items Ordered: {cart.length} </p>
+            </div>
+            <div className='cart-calculation'>
+                <p>Product Price: {formatNumber(total)}</p>
+                <p><small>Shipping Cost: {shipping}</small></p>
+                <p><small>Tax + VAT: {formatNumber(tax)}</small></p>
+                <p>Grand Total: {formatNumber(total + shipping + tax)}</p>
+            </div>
         </div>
     );
 };
